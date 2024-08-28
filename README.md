@@ -40,7 +40,7 @@ how to find articles,https://library.concordia.ca/help/finding/articles/index.ph
 peer-reviewed articles,https://library.concordia.ca/help/finding/articles/peer-review.php
 ```
 4. **Download Ollama**
-5. 
+   
 To run an open source model like Llama or Phi3 locally, you first need to download Ollama:
 
    https://ollama.com/download
