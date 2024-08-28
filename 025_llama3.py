@@ -56,7 +56,6 @@ def analyze(answer):
             if url in answer:
                 answer = delete(answer, extracted_links)
     matched_ans = match(csvall, answer)
-    # cleaned_ans = clean_urls(matched_ans)
     return matched_ans 
 
 def write_to_csv(role, content, session_id, directory='logs_openai'):
@@ -119,8 +118,8 @@ def get_session_history(session_id: str):
 
 conversational_chat = RunnableWithMessageHistory(
     create_retrieval_chain(
-        create_history_aware_retriever(ChatOpenAI(), retriever, contextualize_q_prompt),
-        create_stuff_documents_chain(ChatOpenAI(), qa_prompt)
+        create_history_aware_retriever(llm, retriever, contextualize_q_prompt),
+        create_stuff_documents_chain(llm, qa_prompt)
     ),
     get_session_history,
     input_messages_key="input",
