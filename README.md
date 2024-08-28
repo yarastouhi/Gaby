@@ -108,7 +108,7 @@ Example Credentials File:
 
 After customizing the chatbot, whether by adjusting prompts, temperature settings, or other parameters, you need to generate the embeddings and set up the vector database to reflect these changes.
 
-#### Step 1: Generate Embeddings
+### Step 1: Generate Embeddings
 
 Once you've made your customizations, run the `01_generate_embeddings.py` script to generate the necessary embeddings based on your updated settings. These embeddings are essential for creating a vector database that the chatbot will use to provide contextually relevant responses.
 
@@ -117,7 +117,7 @@ python 01_generate_embeddings.py
 ```
 After running this script, a .chroma directory will be created in your project folder. This directory contains the vector database, which stores the embeddings generated from your documents or data sources.
 
-#### Step 2: Run the Application
+### Step 2: Run the Application
 
 With the embeddings generated and the vector database in place, you can now run the application using Streamlit.
 
