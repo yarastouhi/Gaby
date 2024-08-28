@@ -1,5 +1,6 @@
 # Gaby
-This project is a chatbot designed to assist users of the Concordia University Library by providing helpful responses, answering questions, and offering guidance on library resources. The chatbot is built using `Streamlit` for the user interface and `LangChain` for the chatbot's logic and processing.
+This project is a chatbot designed to assist users of the Concordia University Library by providing helpful responses, answering questions, and offering guidance on library resources. The chatbot is built using `Streamlit` for the user interface and `LangChain` for the chatbot's logic and processing. This chatbot is built using Retrieval-Augmented Generation (RAG), which retrieves information from a database that was created using Swallow and manual scraping of the library's website.
+
 ## Installation and Setup
 Install Dependencies:
 Make sure you have Python installed. Then, install the required Python packages:
@@ -10,7 +11,7 @@ To set up the project locally, follow these steps:
 
 1. **Clone the Repository**:
 ```
-   git clone https://github.com/yarastouhi/gaby.git
+git clone https://github.com/yarastouhi/gaby.git
 cd gaby
 ```
 2. **Set Up OpenAI API Key**
