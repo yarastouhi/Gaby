@@ -59,14 +59,7 @@ def analyze(answer):
     matched_ans = match(csvall, answer)
     chat_history.append(AIMessage(content=matched_ans))
     return matched_ans
-
-# def write_to_csv(role, content, session_id, directory='logs'):
-#     os.makedirs(directory, exist_ok=True)
-#     filename = os.path.join(directory, f'conversation_{session_id}.csv')
-#     with open(filename, mode='a', newline='', encoding='utf-8') as file:
-#         writer = csv.writer(file)
-#         writer.writerow([role, content])
-
+    
 def write_to_csv(role, content, session_id, directory='logs_phi3'):
     os.makedirs(directory, exist_ok=True)
     filename = os.path.join(directory, f'conversation_{session_id}.csv')
@@ -201,17 +194,11 @@ if user_input:
             })
             final_response = remove_extra_prefixes(corrected_response)
             print("Second: ",corrected_response)
-            # final_response = corrected_response
             # if "AI:" or "Gaby:" or "System:" in final_response:
             #     final_response.replace("AI:" or "Gaby:" or "System:", "")
             st.session_state.messages.append({"role": "assistant", "content": final_response})
             write_to_csv("assistant", final_response, session_id)
 
-# for message in st.session_state.messages:
-#     role_prefix = "You:" if message["role"] == "user" else "Gaby:"
-#     avatar = "gabyd2.png" if message["role"] == "assistant" else None
-#     with st.chat_message(message["role"], avatar=avatar):
-#         st.markdown(f"{role_prefix} {message['content']}")
 
 for message in st.session_state.messages:
     if message["role"] == "user":
