@@ -9,26 +9,28 @@ pip install -r requirements.txt
 To set up the project locally, follow these steps:
 
 1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yarastouhi/gaby.git
-   cd gaby
-   ```
-2. **Set Up OpenAI API Key**
- Create a credentials.json file in the directory with your OpenAI API key:
 ```
-[
-    {
-        "service_provider": "openai",
-        "key": "your-openai-api-key"
-    }
-]
+   git clone https://github.com/yarastouhi/gaby.git
+cd gaby
+```
+2. **Set Up OpenAI API Key**
+
+Create a credentials.json file in the directory with your OpenAI API key:
+```
+   [
+       {
+           "service_provider": "openai",
+           "key": "your-openai-api-key"
+       }
+   ]
 ```
 3. **Prepare the CSV File**
 Add your CSV file named titles_and_links.csv in the directory.
 The `titles_and_links.csv` file should contain two columns:
   
-  **Title**: This represents the name or topic that the chatbot might refer to in its responses.
-  **Link**: This is the URL that corresponds to the title, which will be inserted into the chatbot's response when the title is mentioned.
+  a. **Title**: This represents the name or topic that the chatbot might refer to in its responses.
+  
+  b. **Link**: This is the URL that corresponds to the title, which will be inserted into the chatbot's response when the title is mentioned.
 
 Here is an example of the format:
 ```
@@ -65,10 +67,15 @@ To Customize: You can adjust the text within the triple quotes to change how the
 ### 2. Temperature Setting
 
 The temperature setting controls the creativity and variability of the chatbot's responses. A higher temperature will make the responses more creative and diverse, while a lower temperature will make them more deterministic and focused. 
+
 To Customize: Change the temperature parameter to a value between 0 and 1:
+
   -Lower Temperature (e.g., 0.2): The chatbot will provide more precise and consistent answers, suitable for technical or formal contexts.
+  
   -Higher Temperature (e.g., 0.9): The chatbot will generate more varied and creative responses, which can be useful in brainstorming sessions or less formal contexts.
-There are two ways to set or change the temperature: through the `ChatOpenAI` object in the code or by modifying the credentials file.
+  
+There are two ways to set or change the temperature.
+
 #### Method 1: Changing Temperature Through `ChatOpenAI` Object
 
 You can set the temperature directly when initializing the `ChatOpenAI` object in your code.
