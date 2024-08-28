@@ -1,4 +1,3 @@
-#this version works with the KeyError fixed
 import os
 import csv
 import re
@@ -44,20 +43,6 @@ def match(csvall, ans):
         if title.lower() in ans.lower():
             ans = ans.replace(title, f"{title}: {link}")
     return ans
-
-# def match(csvall, ans, threshold=70):
-#     tokenizer = TweetTokenizer()
-#     for title, link in csvall.items():
-#         words = tokenizer.tokenize(ans.lower())
-#         bigrams = list(ngrams(words, 2))
-#         bigrams = [' '.join(bigram) for bigram in bigrams]
-#         for bigram in bigrams:
-#             similarity_score = fuzz.ratio(bigram, title.lower())
-#             print(bigram,"-------", title,"--------",similarity_score)
-#             if similarity_score >= threshold:
-#                 ans = ans.replace(bigram, f"{title}: {link}")
-#     return ans
-#the fuzz.token_sort_ratio doesnt work
 
 def delete(answer, extracted_links):
     for url in extracted_links:
@@ -138,8 +123,8 @@ def get_session_history(session_id: str):
 
 conversational_chat = RunnableWithMessageHistory(
     create_retrieval_chain(
-        create_history_aware_retriever(ChatOpenAI(), retriever, contextualize_q_prompt),
-        create_stuff_documents_chain(ChatOpenAI(), qa_prompt)
+        create_history_aware_retriever(llm, retriever, contextualize_q_prompt),
+        create_stuff_documents_chain(llm, qa_prompt)
     ),
     get_session_history,
     input_messages_key="input",
