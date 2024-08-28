@@ -39,6 +39,17 @@ Title,Link
 how to find articles,https://library.concordia.ca/help/finding/articles/index.php
 peer-reviewed articles,https://library.concordia.ca/help/finding/articles/peer-review.php
 ```
+4. **Download Ollama**
+To run an open source model like Llama or Phi3 locally, you first need to download Ollama:
+
+   https://ollama.com/download
+   
+After downloading Ollama, choose which model you want to use from the models table: https://github.com/ollama/ollama?tab=readme-ov-file#model-library and run:
+```
+ollama pull llama3.1
+```
+You will then be able to use the model of your choice in your code. 
+   
 ## Customization
 
 You can customize the behavior and responses of the chatbot by adjusting the prompt templates or changing the temperature settings of the language model. These customizations allow you to fine-tune the chatbot's tone, formality, and creativity.
